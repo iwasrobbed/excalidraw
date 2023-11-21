@@ -512,9 +512,6 @@ export default function App({ appTitle, useCustom, customArgs }: AppProps) {
           isCollaborating={isCollaborating}
           onSelect={() => window.alert("You clicked on collab button")}
         />
-        <MainMenu.Group title="Excalidraw links">
-          <MainMenu.DefaultItems.Socials />
-        </MainMenu.Group>
         <MainMenu.Separator />
         <MainMenu.ItemCustom>
           <button
@@ -697,7 +694,12 @@ export default function App({ appTitle, useCustom, customArgs }: AppProps) {
               canvasActions: {
                 loadScene: false,
               },
-              tools: { image: !disableImageTool },
+              tools: {
+                image: !disableImageTool,
+                text: false,
+                arrow: false,
+                extras: false,
+              },
             }}
             renderTopRightUI={renderTopRightUI}
             onLinkOpen={onLinkOpen}

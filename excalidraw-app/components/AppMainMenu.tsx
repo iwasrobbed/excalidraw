@@ -33,7 +33,7 @@ export const AppMainMenu: React.FC<{
       >
         Excalidraw+
       </MainMenu.ItemLink>
-      <MainMenu.DefaultItems.Socials />
+      {/* <MainMenu.DefaultItems.Socials /> */}
       <MainMenu.Separator />
       <MainMenu.DefaultItems.ToggleTheme />
       <MainMenu.ItemCustom>
