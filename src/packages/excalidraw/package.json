@@ -1,6 +1,6 @@
 {
-  "name": "@excalidraw/excalidraw",
-  "version": "0.17.0",
+  "name": "fastlane-paint",
+  "version": "1.0.0",
   "main": "main.js",
   "types": "types/packages/excalidraw/index.d.ts",
   "files": [
@@ -10,15 +10,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Excalidraw as a React component",
-  "repository": "https://github.com/excalidraw/excalidraw",
+  "description": "Customized paint for Fastlane",
+  "repository": "https://github.com/iwasrobbed/excalidraw",
   "license": "MIT",
   "keywords": [
-    "excalidraw",
-    "excalidraw-embed",
-    "react",
-    "npm",
-    "npm excalidraw"
+    "fastlane"
   ],
   "browserslist": {
     "production": [
