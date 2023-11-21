@@ -241,7 +241,17 @@ export type AppState = {
   openMenu: "canvas" | "shape" | null;
   openPopup: "canvasBackground" | "elementBackground" | "elementStroke" | null;
   openSidebar: { name: SidebarName; tab?: SidebarTabName } | null;
-  openDialog: "imageExport" | "help" | "jsonExport" | "mermaid" | null;
+  openDialog:
+    | "imageExport"
+    | "help"
+    | "jsonExport"
+    // TODO barnabasmolnar/hal-9000-tabs ˇˇ
+    // probably rethink this
+    // would be cleaner to have
+    // { name: "imageExport" } | { name: "help" } | ... { name: "ai", tab: string }
+    // not sure yet how much of a refactor/breaking change that would be
+    | { name: "ai"; tab: string }
+    | null;
   /**
    * Reflects user preference for whether the default sidebar should be docked.
    *

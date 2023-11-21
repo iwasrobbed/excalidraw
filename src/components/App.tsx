@@ -365,7 +365,6 @@ import { isSidebarDockedAtom } from "./Sidebar/Sidebar";
 import { StaticCanvas, InteractiveCanvas } from "./canvases";
 import { Renderer } from "../scene/Renderer";
 import { ShapeCache } from "../scene/ShapeCache";
-import MermaidToExcalidraw from "./MermaidToExcalidraw";
 import { LaserToolOverlay } from "./LaserTool/LaserTool";
 import { LaserPathManager } from "./LaserTool/LaserPathManager";
 import {
@@ -375,6 +374,7 @@ import {
   setCursorForShape,
 } from "../cursor";
 import { Emitter } from "../emitter";
+import { AIDialog } from "./AIDialog/AIDialog";
 
 const AppContext = React.createContext<AppClassProperties>(null!);
 const AppPropsContext = React.createContext<AppProps>(null!);
@@ -1249,9 +1249,7 @@ class App extends React.Component<AppProps, AppState> {
                           isCollaborating={this.props.isCollaborating}
                         >
                           {this.props.children}
-                          {this.state.openDialog === "mermaid" && (
-                            <MermaidToExcalidraw />
-                          )}
+                          <AIDialog __fallback />
                         </LayerUI>
 
                         <div className="excalidraw-textEditorContainer" />
