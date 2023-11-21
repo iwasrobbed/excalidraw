@@ -4,41 +4,41 @@ import { KEYS } from "../keys";
 import { Dialog } from "./Dialog";
 import { getShortcutKey } from "../utils";
 import "./HelpDialog.scss";
-import { ExternalLinkIcon } from "./icons";
+// import { ExternalLinkIcon } from "./icons";
 import { probablySupportsClipboardBlob } from "../clipboard";
 import { isDarwin, isFirefox, isWindows } from "../constants";
 
-const Header = () => (
-  <div className="HelpDialog__header">
-    <a
-      className="HelpDialog__btn"
-      href="https://docs.excalidraw.com"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {t("helpDialog.documentation")}
-      <div className="HelpDialog__link-icon">{ExternalLinkIcon}</div>
-    </a>
-    <a
-      className="HelpDialog__btn"
-      href="https://blog.excalidraw.com"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {t("helpDialog.blog")}
-      <div className="HelpDialog__link-icon">{ExternalLinkIcon}</div>
-    </a>
-    <a
-      className="HelpDialog__btn"
-      href="https://github.com/excalidraw/excalidraw/issues"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {t("helpDialog.github")}
-      <div className="HelpDialog__link-icon">{ExternalLinkIcon}</div>
-    </a>
-  </div>
-);
+// const Header = () => (
+//   <div className="HelpDialog__header">
+//     <a
+//       className="HelpDialog__btn"
+//       href="https://docs.excalidraw.com"
+//       target="_blank"
+//       rel="noopener noreferrer"
+//     >
+//       {t("helpDialog.documentation")}
+//       <div className="HelpDialog__link-icon">{ExternalLinkIcon}</div>
+//     </a>
+//     <a
+//       className="HelpDialog__btn"
+//       href="https://blog.excalidraw.com"
+//       target="_blank"
+//       rel="noopener noreferrer"
+//     >
+//       {t("helpDialog.blog")}
+//       <div className="HelpDialog__link-icon">{ExternalLinkIcon}</div>
+//     </a>
+//     <a
+//       className="HelpDialog__btn"
+//       href="https://github.com/excalidraw/excalidraw/issues"
+//       target="_blank"
+//       rel="noopener noreferrer"
+//     >
+//       {t("helpDialog.github")}
+//       <div className="HelpDialog__link-icon">{ExternalLinkIcon}</div>
+//     </a>
+//   </div>
+// );
 
 const Section = (props: { title: string; children: React.ReactNode }) => (
   <>
@@ -120,7 +120,7 @@ export const HelpDialog = ({ onClose }: { onClose?: () => void }) => {
         title={t("helpDialog.title")}
         className={"HelpDialog"}
       >
-        <Header />
+        {/* <Header /> */}
         <Section title={t("helpDialog.shortcuts")}>
           <ShortcutIsland
             className="HelpDialog__island--tools"
@@ -333,12 +333,12 @@ export const HelpDialog = ({ onClose }: { onClose?: () => void }) => {
             />
             {/* firefox supports clipboard API under a flag, so we'll
                 show users what they can do in the error message */}
-            {(probablySupportsClipboardBlob || isFirefox) && (
+            {/* {(probablySupportsClipboardBlob || isFirefox) && (
               <Shortcut
                 label={t("labels.copyAsPng")}
                 shortcuts={[getShortcutKey("Shift+Alt+C")]}
               />
-            )}
+            )} */}
             <Shortcut
               label={t("labels.copyStyles")}
               shortcuts={[getShortcutKey("CtrlOrCmd+Alt+C")]}

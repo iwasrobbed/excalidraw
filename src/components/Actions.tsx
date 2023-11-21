@@ -206,7 +206,7 @@ export const SelectedShapeActions = ({
             {!device.editor.isMobile && renderAction("deleteSelectedElements")}
             {renderAction("group")}
             {renderAction("ungroup")}
-            {showLinkIcon && renderAction("hyperlink")}
+            {/* {showLinkIcon && renderAction("hyperlink")} */}
           </div>
         </fieldset>
       )}
@@ -282,64 +282,68 @@ export const ShapesSwitcher = ({
           />
         );
       })}
-      <div className="App-toolbar__divider" />
+      {UIOptions.tools?.extras && (
+        <>
+          <div className="App-toolbar__divider" />
 
-      <DropdownMenu open={isExtraToolsMenuOpen}>
-        <DropdownMenu.Trigger
-          className={clsx("App-toolbar__extra-tools-trigger", {
-            "App-toolbar__extra-tools-trigger--selected":
-              frameToolSelected ||
-              embeddableToolSelected ||
-              // in collab we're already highlighting the laser button
-              // outside toolbar, so let's not highlight extra-tools button
-              // on top of it
-              (laserToolSelected && !app.props.isCollaborating),
-          })}
-          onToggle={() => setIsExtraToolsMenuOpen(!isExtraToolsMenuOpen)}
-          title={t("toolBar.extraTools")}
-        >
-          {extraToolsIcon}
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Content
-          onClickOutside={() => setIsExtraToolsMenuOpen(false)}
-          onSelect={() => setIsExtraToolsMenuOpen(false)}
-          className="App-toolbar__extra-tools-dropdown"
-        >
-          <DropdownMenu.Item
-            onSelect={() => app.setActiveTool({ type: "frame" })}
-            icon={frameToolIcon}
-            shortcut={KEYS.F.toLocaleUpperCase()}
-            data-testid="toolbar-frame"
-            selected={frameToolSelected}
-          >
-            {t("toolBar.frame")}
-          </DropdownMenu.Item>
-          <DropdownMenu.Item
-            onSelect={() => app.setActiveTool({ type: "embeddable" })}
-            icon={EmbedIcon}
-            data-testid="toolbar-embeddable"
-            selected={embeddableToolSelected}
-          >
-            {t("toolBar.embeddable")}
-          </DropdownMenu.Item>
-          <DropdownMenu.Item
-            onSelect={() => app.setActiveTool({ type: "laser" })}
-            icon={laserPointerToolIcon}
-            data-testid="toolbar-laser"
-            selected={laserToolSelected}
-            shortcut={KEYS.K.toLocaleUpperCase()}
-          >
-            {t("toolBar.laser")}
-          </DropdownMenu.Item>
-          <DropdownMenu.Item
-            onSelect={() => app.setOpenDialog("mermaid")}
-            icon={mermaidLogoIcon}
-            data-testid="toolbar-embeddable"
-          >
-            {t("toolBar.mermaidToExcalidraw")}
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu>
+          <DropdownMenu open={isExtraToolsMenuOpen}>
+            <DropdownMenu.Trigger
+              className={clsx("App-toolbar__extra-tools-trigger", {
+                "App-toolbar__extra-tools-trigger--selected":
+                  frameToolSelected ||
+                  embeddableToolSelected ||
+                  // in collab we're already highlighting the laser button
+                  // outside toolbar, so let's not highlight extra-tools button
+                  // on top of it
+                  (laserToolSelected && !app.props.isCollaborating),
+              })}
+              onToggle={() => setIsExtraToolsMenuOpen(!isExtraToolsMenuOpen)}
+              title={t("toolBar.extraTools")}
+            >
+              {extraToolsIcon}
+            </DropdownMenu.Trigger>
+            <DropdownMenu.Content
+              onClickOutside={() => setIsExtraToolsMenuOpen(false)}
+              onSelect={() => setIsExtraToolsMenuOpen(false)}
+              className="App-toolbar__extra-tools-dropdown"
+            >
+              <DropdownMenu.Item
+                onSelect={() => app.setActiveTool({ type: "frame" })}
+                icon={frameToolIcon}
+                shortcut={KEYS.F.toLocaleUpperCase()}
+                data-testid="toolbar-frame"
+                selected={frameToolSelected}
+              >
+                {t("toolBar.frame")}
+              </DropdownMenu.Item>
+              <DropdownMenu.Item
+                onSelect={() => app.setActiveTool({ type: "embeddable" })}
+                icon={EmbedIcon}
+                data-testid="toolbar-embeddable"
+                selected={embeddableToolSelected}
+              >
+                {t("toolBar.embeddable")}
+              </DropdownMenu.Item>
+              <DropdownMenu.Item
+                onSelect={() => app.setActiveTool({ type: "laser" })}
+                icon={laserPointerToolIcon}
+                data-testid="toolbar-laser"
+                selected={laserToolSelected}
+                shortcut={KEYS.K.toLocaleUpperCase()}
+              >
+                {t("toolBar.laser")}
+              </DropdownMenu.Item>
+              <DropdownMenu.Item
+                onSelect={() => app.setOpenDialog("mermaid")}
+                icon={mermaidLogoIcon}
+                data-testid="toolbar-embeddable"
+              >
+                {t("toolBar.mermaidToExcalidraw")}
+              </DropdownMenu.Item>
+            </DropdownMenu.Content>
+          </DropdownMenu>
+        </>
+      )}
     </>
   );
 };

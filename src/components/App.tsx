@@ -8338,7 +8338,7 @@ class App extends React.Component<AppProps, AppState> {
   ): ContextMenuItems => {
     const options: ContextMenuItems = [];
 
-    options.push(actionCopyAsPng, actionCopyAsSvg);
+    // options.push(actionCopyAsPng, actionCopyAsSvg);
 
     // canvas contextMenu
     // -------------------------------------------------------------------------
@@ -8410,7 +8410,7 @@ class App extends React.Component<AppProps, AppState> {
       actionFlipVertical,
       CONTEXT_MENU_SEPARATOR,
       actionToggleLinearEditor,
-      actionLink,
+      // actionLink,
       actionDuplicateSelection,
       actionToggleElementLock,
       CONTEXT_MENU_SEPARATOR,

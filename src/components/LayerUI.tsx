@@ -95,10 +95,14 @@ const DefaultMainMenu: React.FC<{
       <MainMenu.DefaultItems.Help />
       <MainMenu.DefaultItems.ClearCanvas />
       <MainMenu.Separator />
-      <MainMenu.Group title="Excalidraw links">
-        <MainMenu.DefaultItems.Socials />
-      </MainMenu.Group>
-      <MainMenu.Separator />
+      {UIOptions.canvasActions.showLinks && (
+        <>
+          <MainMenu.Group title="Excalidraw links">
+            <MainMenu.DefaultItems.Socials />
+          </MainMenu.Group>
+          <MainMenu.Separator />
+        </>
+      )}
       <MainMenu.DefaultItems.ToggleTheme />
       <MainMenu.DefaultItems.ChangeCanvasBackground />
     </MainMenu>

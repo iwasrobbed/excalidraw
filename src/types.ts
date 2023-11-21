@@ -479,6 +479,7 @@ export type CanvasActions = Partial<{
   saveToActiveFile: boolean;
   toggleTheme: boolean | null;
   saveAsImage: boolean;
+  showLinks: boolean;
 }>;
 
 export type UIOptions = Partial<{
@@ -486,6 +487,9 @@ export type UIOptions = Partial<{
   canvasActions: CanvasActions;
   tools: {
     image: boolean;
+    arrow: boolean;
+    text: boolean;
+    extras: boolean;
   };
   /** @deprecated does nothing. Will be removed in 0.15 */
   welcomeScreen?: boolean;
