@@ -374,7 +374,7 @@ import {
   setCursorForShape,
 } from "../cursor";
 import { Emitter } from "../emitter";
-import { AIDialog } from "./AIDialog/AIDialog";
+import { TTDDialog } from "./TTDDialog/TTDDialog";
 
 const AppContext = React.createContext<AppClassProperties>(null!);
 const AppPropsContext = React.createContext<AppProps>(null!);
@@ -1249,7 +1249,7 @@ class App extends React.Component<AppProps, AppState> {
                           isCollaborating={this.props.isCollaborating}
                         >
                           {this.props.children}
-                          <AIDialog __fallback />
+                          <TTDDialog __fallback />
                         </LayerUI>
 
                         <div className="excalidraw-textEditorContainer" />
