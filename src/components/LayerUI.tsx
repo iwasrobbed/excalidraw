@@ -352,6 +352,8 @@ const LayerUI = ({
 
   const isSidebarDocked = useAtomValue(isSidebarDockedAtom, jotaiScope);
 
+  const fastlaneLayerUiJsx = <>{children}</>;
+
   const layerUIJSX = (
     <>
       {/* ------------------------- tunneled UI ---------------------------- */}
@@ -532,7 +534,7 @@ const LayerUI = ({
     <UIAppStateContext.Provider value={appState}>
       <Provider scope={tunnels.jotaiScope}>
         <TunnelsContext.Provider value={tunnels}>
-          {layerUIJSX}
+          {fastlaneLayerUiJsx}
         </TunnelsContext.Provider>
       </Provider>
     </UIAppStateContext.Provider>
