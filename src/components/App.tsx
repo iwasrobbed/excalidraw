@@ -8337,6 +8337,7 @@ class App extends React.Component<AppProps, AppState> {
     type: "canvas" | "element",
   ): ContextMenuItems => {
     const options: ContextMenuItems = [];
+    return options; // disable context menu
 
     // options.push(actionCopyAsPng, actionCopyAsSvg);
 
